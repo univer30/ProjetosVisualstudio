@@ -97,10 +97,14 @@
   <ItemGroup>
     <Compile Include="Agendar.cs" />
     <Compile Include="Animal.cs" />
+    <Compile Include="Banco.cs" />
+    <Compile Include="Caixa.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ConsumoCliente.cs" />
     <Compile Include="DAOAgendar.cs" />
     <Compile Include="DAOAnimal.cs" />
+    <Compile Include="DAOBanco.cs" />
+    <Compile Include="DAOCaixa.cs" />
     <Compile Include="DAOConsumoCliente.cs" />
     <Compile Include="DAOFuncionario.cs" />
     <Compile Include="DAOLogin.cs" />
@@ -123,6 +127,12 @@
     </Compile>
     <Compile Include="frmAnimal.Designer.cs">
       <DependentUpon>frmAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanco.Designer.cs">
+      <DependentUpon>frmBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCadLogin.cs">
       <SubType>Form</SubType>
@@ -307,6 +317,9 @@
     <EmbeddedResource Include="frmAnimal.resx">
       <DependentUpon>frmAnimal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBanco.resx">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadLogin.resx">
       <DependentUpon>frmCadLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -480,6 +493,11 @@
     <None Include="Resources\Print_icon-icons.com_74701.ico" />
     <None Include="Resources\security-protection-protect-key-password-login_108554.png" />
     <None Include="Resources\bandeiras-de-cartao-mundipagg.png" />
+    <None Include="Resources\deposito.jpg" />
+    <None Include="Resources\itau.jpg" />
+    <None Include="Resources\santander.png" />
+    <None Include="Resources\bancoBrasil.jpg" />
+    <None Include="Resources\add_icon-icons.com_74429.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

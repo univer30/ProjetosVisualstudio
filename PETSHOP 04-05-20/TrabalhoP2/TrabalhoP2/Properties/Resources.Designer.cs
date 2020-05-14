@@ -63,6 +63,26 @@ namespace TrabalhoP2.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_icon_icons_com_74429 {
+            get {
+                object obj = ResourceManager.GetObject("add_icon-icons.com_74429", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bancoBrasil {
+            get {
+                object obj = ResourceManager.GetObject("bancoBrasil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bandeiras_de_cartao_mundipagg {
             get {
                 object obj = ResourceManager.GetObject("bandeiras-de-cartao-mundipagg", resourceCulture);
@@ -73,9 +93,39 @@ namespace TrabalhoP2.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deposito {
+            get {
+                object obj = ResourceManager.GetObject("deposito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap itau {
+            get {
+                object obj = ResourceManager.GetObject("itau", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Print_icon_icons_com_74701 {
             get {
                 object obj = ResourceManager.GetObject("Print_icon-icons.com_74701", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap santander {
+            get {
+                object obj = ResourceManager.GetObject("santander", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

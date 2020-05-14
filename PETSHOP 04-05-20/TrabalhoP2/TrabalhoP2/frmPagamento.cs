@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace TrabalhoP2
 {
     public partial class frmPagamento : Form
     {
+        public bool tem;
+        Conexao conn = new Conexao();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
         String cliente;
         Decimal total = 0;
         Decimal troco=0;
@@ -26,14 +31,53 @@ namespace TrabalhoP2
        int idClient;
         Decimal total2;
         Boolean liberar;
-
+        Decimal SaldoConta;
+        Decimal TotalLiquido;
+        Decimal saldo2;
+        Decimal Saldo3; //altera no Bnaco 
+        int id;
+        int i;
+        int id2;
         public void fechar()
         {
             btnalterar_Click(null, null);
         }
+         public Banco getBanco()
+        {
+            Banco ban = new Banco();
+            ban.id = id;
+            ban.saldo = TotalLiquido;
+            return ban;
+        }
+
+        void Consulta()
+        {
+            cmd.CommandText = @"select * from Banco  ";
+            cmd.Parameters.Clear();
+            cmd.Connection = conn.Abrir();
+            try
+            {
+                cmd.Connection = conn.Abrir();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+
+                id= i= dr.GetInt32(0);
+                  saldo2=  SaldoConta = dr.GetDecimal(5);
+
+                  
 
 
-        public frmPagamento(String nome, Decimal valorTotal, int IdCliente, String data, String hora)
+                }
+                conn.fechar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro no select");
+            }
+        }
+            public frmPagamento(String nome, Decimal valorTotal, int IdCliente, String data, String hora, int id)
         {
             InitializeComponent();
             cliente = nome;
@@ -41,6 +85,7 @@ namespace TrabalhoP2
             idClient = IdCliente;
             dat = data;
             hor = hora;
+            id2 = id;
 
         }
 
@@ -82,36 +127,56 @@ namespace TrabalhoP2
         }
         private void frmPagamento_Load(object sender, EventArgs e)
         {
+            Consulta();
             txtCliente.Text = cliente;
             String t = Convert.ToString(total);
             lblTotal.Text = t;
             txtDinheiro.Text = "0,00";
-            txtTroco.Text = "0,00";
             btnfinalizar.Enabled = false;
+            txtTroco.Text = "0,00";
             txtDescontos.Enabled = false;
+           
+           
 
         }
 
         private void btnadicionar_Click(object sender, EventArgs e)
         {
-            
+
+
             try
             {
+
                 DAOPagamento p = new DAOPagamento();
                 p.inserir(getPagamento());
                 MessageBox.Show("Pagamento efetuado com sucesso!");
 
+                
+
+
+                //alterar o saldo banco
+                TotalLiquido = saldo2 + total;
+                DAOBanco query = new DAOBanco();
+                query.alterar(getBanco());
+
+
+                //alterar Saldo Caixa
+
+                DAOCaixa ca = new DAOCaixa();
+                ca.alterarCaixa(id,TotalLiquido);
+                MessageBox.Show(""+id);
+
                 frmNotafiscal n = new frmNotafiscal(dinheiro, troco, cartao, ticket, cheque, descontos, outros);
                 n.ShowDialog();
                 Close();
-               
-
 
             }
             catch
             {
-                MessageBox.Show("Pagamento não realizado!");
+                MessageBox.Show("Não foi possivel finalizar!");
             }
+
+
 
         }
         private void btnalterar_Click(object sender, EventArgs e)
@@ -539,6 +604,16 @@ namespace TrabalhoP2
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

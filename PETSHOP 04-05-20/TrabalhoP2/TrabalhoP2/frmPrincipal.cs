@@ -350,7 +350,7 @@ namespace TrabalhoP2
 
         private void controleDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCaixa caixa = new frmCaixa();
+            frmCaixa caixa = new frmCaixa(0);
             caixa.ShowDialog();
         }
 

@@ -10,7 +10,7 @@ namespace TrabalhoP2
     class Conexao
     {
         SqlConnection conn;
-        String fonte = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\roddy\Documents\Projeto PetShop\PETSHOP 04-05-20\TrabalhoP2\TrabalhoP2\Loja.mdf;Integrated Security=True";
+        String fonte = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Thiago\source\repos\ProjetosVisualstudio\PETSHOP 04-05-20\TrabalhoP2\TrabalhoP2\Loja.mdf;Integrated Security=True";
         
         public Conexao()
         {

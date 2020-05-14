@@ -178,7 +178,7 @@ namespace TrabalhoP2
         private void button3_Click(object sender, EventArgs e)
         {
 
-            frmPagamento p = new frmPagamento("",0,0,"","");
+            frmPagamento p = new frmPagamento("",0,0,"","", 0);
             p.fechar();
             
             Close();

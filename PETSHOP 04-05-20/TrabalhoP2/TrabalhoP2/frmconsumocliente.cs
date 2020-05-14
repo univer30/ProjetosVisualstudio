@@ -14,7 +14,13 @@ namespace TrabalhoP2
 {
     public partial class frmconsumocliente : Form
     {
+        public bool tem;
+        Conexao conn = new Conexao();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
 
+        int id;
+        int i;
         decimal valorunit = 0;
         decimal soma = 0;
         decimal sub = 0;
@@ -23,18 +29,30 @@ namespace TrabalhoP2
         int num2;
         String data;
         String hora;
+        String creditodebito = "crédito";
+        Decimal Subtotal = 0;
+        Decimal saldoconta = 0;
+        Decimal total;
        
-
 
         public frmconsumocliente()
         {
             InitializeComponent();
             botaoAdicionar();
 
-        }
+           total  = Convert.ToDecimal(lblTotal.Text);
 
+       
+
+            frmCaixa c = new frmCaixa(total);
+
+        }
+        
+      
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+           
+
 
             consultacliente frm = new consultacliente();
             frm.ShowDialog();
@@ -68,6 +86,17 @@ namespace TrabalhoP2
             return cons;
 
         }
+        public Caixa getdadoscaixa()
+        { Caixa c = new Caixa();
+            c.Data = data;
+            c.descricao = rtbdescricao.Text;
+            c.valor = Convert.ToDecimal(txtprecounitario.Text);
+            c.Creditodebito = creditodebito;
+            c.Subtotal = Subtotal;
+
+
+            return c;
+        }
 
         private Lista getLista()
         {
@@ -81,6 +110,32 @@ namespace TrabalhoP2
             l.hora = hora;
             l.data = data;
             return l;
+        }
+
+        void Consulta()
+        {
+            cmd.CommandText = @"select * from Caixa  ";
+            cmd.Parameters.Clear();
+            cmd.Connection = conn.Abrir();
+            try
+            {
+                cmd.Connection = conn.Abrir();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+
+                    dr.Read();
+                    id = i = dr.GetInt32(0);
+                   
+                   
+                }
+                conn.fechar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro no select");
+            }
+
         }
 
         private void liberar()
@@ -234,7 +289,8 @@ namespace TrabalhoP2
             txtcodcliente.Enabled = false;
             txtId.Enabled = false;
             button1.Enabled = false;
-
+            Consulta();
+            MessageBox.Show("" + id);
         }
 
         private void frmconsumocliente_Paint(object sender, PaintEventArgs e)
@@ -257,6 +313,11 @@ namespace TrabalhoP2
             DAOConsumoCliente c = new DAOConsumoCliente();
             c.inserirLista(getLista());
             button1.Enabled = true;
+
+            //dados para o controle de caixa
+            DAOCaixa frm = new DAOCaixa();
+            frm.inserir(getdadoscaixa());
+       
         }
 
 
@@ -331,7 +392,7 @@ namespace TrabalhoP2
            
 
             int IdCliente = Convert.ToInt32(txtcodcliente.Text);
-            frmPagamento p = new frmPagamento(txtnome.Text,soma, IdCliente, data, hora);
+            frmPagamento p = new frmPagamento(txtnome.Text,soma, IdCliente, data, hora,id);
             p.ShowDialog();
          
 
@@ -352,7 +413,7 @@ namespace TrabalhoP2
         private void button1_Click_2(object sender, EventArgs e)
         {
             int IdCliente = Convert.ToInt32(txtcodcliente.Text);
-            frmPagamento p = new frmPagamento(txtnome.Text, soma, IdCliente, data, hora);
+            frmPagamento p = new frmPagamento(txtnome.Text, soma, IdCliente, data, hora, id);
             p.ShowDialog();
         }
 
@@ -374,6 +435,10 @@ namespace TrabalhoP2
         private void txtcodproduto_Leave(object sender, EventArgs e)
         {
             txtcodproduto.BackColor = System.Drawing.Color.White;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
  

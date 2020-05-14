@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bandeiras-de-cartao-mundipagg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bandeiras-de-cartao-mundipagg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="deposito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\deposito.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="security-protection-protect-key-password-login_108554" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\security-protection-protect-key-password-login_108554.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bancoBrasil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bancoBrasil.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="santander" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\santander.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Print_icon-icons.com_74701" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Print_icon-icons.com_74701.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itau" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itau.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add_icon-icons.com_74429" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_icon-icons.com_74429.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
