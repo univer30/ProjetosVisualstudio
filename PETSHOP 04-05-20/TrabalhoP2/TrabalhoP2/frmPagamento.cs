@@ -163,8 +163,8 @@ namespace TrabalhoP2
                 //alterar Saldo Caixa
 
                 DAOCaixa ca = new DAOCaixa();
-                ca.alterarCaixa(id,TotalLiquido);
-                MessageBox.Show(""+id);
+                ca.alterarCaixa(id2,TotalLiquido);
+               
 
                 frmNotafiscal n = new frmNotafiscal(dinheiro, troco, cartao, ticket, cheque, descontos, outros);
                 n.ShowDialog();

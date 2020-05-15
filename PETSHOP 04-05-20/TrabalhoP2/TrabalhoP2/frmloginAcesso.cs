@@ -172,5 +172,10 @@ namespace TrabalhoP2
         {
             txtSenha.BackColor = System.Drawing.Color.White;
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

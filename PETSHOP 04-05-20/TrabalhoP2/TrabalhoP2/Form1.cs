@@ -27,6 +27,7 @@ namespace TrabalhoP2
         Decimal SaldoBanco;
         Decimal Somar;
         Decimal Somar2;
+        Decimal saldoBanco2;
 
 
 
@@ -42,7 +43,7 @@ namespace TrabalhoP2
 
         void somaVaunit()
         {
-
+            
             cmd.CommandText = @"select sum(Valor) from Caixa ";
             cmd.Parameters.Clear();
             cmd.Connection = conn.Abrir();
@@ -53,6 +54,7 @@ namespace TrabalhoP2
             dr.Read();
            Somar= Somar2= dr.GetDecimal(0);
             lblBruta.Text = Convert.ToString(Somar);
+            lblLiquida.Text = Convert.ToString(Somar);
             conn.fechar();
     
         }
@@ -70,7 +72,8 @@ namespace TrabalhoP2
                     dr.Read();
 
 
-                    SaldoBanco = dr.GetDecimal(5);
+                  saldoBanco2 = SaldoBanco = dr.GetDecimal(5);
+                  
 
 
 
@@ -121,6 +124,12 @@ namespace TrabalhoP2
             Consulta();
             lblsaldo.Text = Convert.ToString(SaldoBanco);
             somaVaunit();
+            if (saldoBanco2 <= 100)
+            {
+                lblsaldo.BackColor = Color.Red;
+                MessageBox.Show(" ATenção \n Saldo da conta abaixo de 100 Reais!");
+
+            }
          
 
 
@@ -167,6 +176,13 @@ namespace TrabalhoP2
         {
             frmBanco frm = new frmBanco();
             frm.ShowDialog();
+        }
+
+        private void txtDataini_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            DAOCaixa c = new DAOCaixa();
+            c.listaAnimalPorNome(txtDataini.Text);
+
         }
     }
 }

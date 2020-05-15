@@ -295,6 +295,11 @@ namespace TrabalhoP2
         {
             Close();
         }
+
+        private void txtnome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

@@ -498,6 +498,7 @@
     <None Include="Resources\santander.png" />
     <None Include="Resources\bancoBrasil.jpg" />
     <None Include="Resources\add_icon-icons.com_74429.png" />
+    <None Include="Resources\cef.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

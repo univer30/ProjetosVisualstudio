@@ -73,5 +73,39 @@ namespace TrabalhoP2
             query.ExecuteNonQuery();
             conn.fechar();
         }
+        public List<Caixa> listaAnimalPorNome(String data)
+        {
+            Conexao conn = new Conexao();
+            SqlCommand query = new SqlCommand(
+                " select id, Data, descricao, creditodebito, valor, SaldoConta, Subtotal from Caixa " +
+                " where Data LIKE @Data");
+            query.Parameters.Add("@Data", SqlDbType.VarChar).Value =
+                                                        "%" + data + "%";
+            query.Connection = conn.Abrir();
+            using (SqlDataReader rs = query.ExecuteReader())
+            {
+                if (rs.HasRows)
+                {
+                    List<Caixa> caixa = new List<Caixa>();
+                    while (rs.Read())
+                    {
+                        Caixa c = new Caixa();
+                        c.Id = rs.GetInt32(0);
+                        c.Data = rs.GetString(1);
+                        c.descricao = rs.GetString(2);
+                        c.Creditodebito = rs.GetString(3);
+                        c.valor = rs.GetDecimal(4);
+                        c.SaldoConta = rs.GetDecimal(5);
+                        c.Subtotal = rs.GetDecimal(6);
+
+                        caixa.Add(c);
+                    }
+                    conn.fechar();
+                    return caixa;
+                }
+                conn.fechar();
+                return null;
+            }
+        }
     }
 }

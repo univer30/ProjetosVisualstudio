@@ -290,7 +290,6 @@ namespace TrabalhoP2
             txtId.Enabled = false;
             button1.Enabled = false;
             Consulta();
-            MessageBox.Show("" + id);
         }
 
         private void frmconsumocliente_Paint(object sender, PaintEventArgs e)

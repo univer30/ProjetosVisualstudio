@@ -93,6 +93,16 @@ namespace TrabalhoP2.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cef {
+            get {
+                object obj = ResourceManager.GetObject("cef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deposito {
             get {
                 object obj = ResourceManager.GetObject("deposito", resourceCulture);

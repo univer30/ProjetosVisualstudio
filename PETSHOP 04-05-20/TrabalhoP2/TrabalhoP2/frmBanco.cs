@@ -30,6 +30,39 @@ namespace TrabalhoP2
             InitializeComponent();
         }
 
+        void acionarPoupanca()
+        {
+            try {
+                DAOBanco query = new DAOBanco();
+                query.alterar(getDadosBanco2());
+                MessageBox.Show("Depositado com sucesso");
+                txtSaldo.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Erro no banco!");
+            }
+}
+        void criarNovaConta()
+        {
+
+            if (cbBanco.Text == "" || cbTipo.Text == "" ||
+                txtAgencia.Text == "" || txtCont.Text == "" || txtSaldo.Text == "")
+            {
+                MessageBox.Show("Ddados em branco!");
+            }
+            else
+            {
+                inseirBanco();
+                cbBanco.Text = "";
+                cbTipo.Text = "";
+                txtAgencia.Clear();
+                txtCont.Clear();
+                txtSaldo.Clear();
+            }
+
+        }
+
         public void setDdaosBanco(Banco ba)
         {
             cbBanco.Text = ba.BancoN;
@@ -118,22 +151,15 @@ namespace TrabalhoP2
             {
                 pbItau.Visible = true;
             }
+            if (b == "CEF        ")
+            {
+                pbItau.Visible = true;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
-            if (cbBanco.Text == "" || cbTipo.Text == ""||
-                txtAgencia.Text =="" || txtCont.Text == ""|| txtSaldo.Text == "")
-            {
-                MessageBox.Show("Ddados em branco!");
-            }
-            else
-            {
-                inseirBanco();
-            }
-           
-            
+            criarNovaConta();
         }
 
         private void cbBanco_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +169,7 @@ namespace TrabalhoP2
                 pbItau.Visible = true;
                 pbBrasil.Visible = false;
                 pbsantander.Visible = false;
+                pbcef.Visible = false;
             }
 
             if (cbBanco.Text == "Santander")
@@ -150,22 +177,38 @@ namespace TrabalhoP2
                 pbItau.Visible = false;
                 pbBrasil.Visible = false;
                 pbsantander.Visible = true;
+                pbcef.Visible = false;
             }
 
-            if (cbBanco.Text == "Banco do Brasil")
+            if (cbBanco.Text == "BancoBrasil")
             {
                 pbItau.Visible = false;
                 pbBrasil.Visible = true;
                 pbsantander.Visible = false;
+                pbcef.Visible = false;
+            }
+            if (cbBanco.Text == "CEF")
+            {
+                pbItau.Visible = false;
+                pbBrasil.Visible = false;
+                pbsantander.Visible = false;
+                pbcef.Visible = true;
             }
 
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            DAOBanco query =  new DAOBanco();
-            query.alterar(getDadosBanco2());
-            MessageBox.Show("Depositado com sucesso");
+            if (txtSaldo.Text=="")
+            {
+                MessageBox.Show("Dados em branco!" +
+                    " digite os dados!");
+            }
+            else
+            {
+                acionarPoupanca();
+            }
+            
         }
 
         private void rdDepositar_CheckedChanged(object sender, EventArgs e)
@@ -191,6 +234,40 @@ namespace TrabalhoP2
             txtSaldo.Enabled = true;
             pictureBox2.Enabled = false;
             pictureBox1.Enabled = true;
+        }
+
+        private void txtAgencia_Enter(object sender, EventArgs e)
+        {
+            txtAgencia.BackColor = System.Drawing.Color.LightBlue;
+        }
+
+       
+
+        private void txtCont_Enter(object sender, EventArgs e)
+        {
+            txtCont.BackColor = System.Drawing.Color.LightBlue;
+        }
+
+       
+
+        private void txtSaldo_Enter(object sender, EventArgs e)
+        {
+            txtSaldo.BackColor = System.Drawing.Color.LightBlue;
+        }
+
+        private void txtAgencia_Leave(object sender, EventArgs e)
+        {
+            txtAgencia.BackColor = System.Drawing.Color.White;
+        }
+
+        private void txtCont_Leave(object sender, EventArgs e)
+        {
+            txtCont.BackColor = System.Drawing.Color.White;
+        }
+
+        private void txtSaldo_Leave(object sender, EventArgs e)
+        {
+            txtSaldo.BackColor = System.Drawing.Color.White;
         }
     }
 }
