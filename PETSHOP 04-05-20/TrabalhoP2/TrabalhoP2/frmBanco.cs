@@ -25,6 +25,7 @@ namespace TrabalhoP2
         String b;
         int id;
         int i;
+        Decimal soma;
         public frmBanco()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace TrabalhoP2
         void acionarPoupanca()
         {
             try {
+              
                 DAOBanco query = new DAOBanco();
                 query.alterar(getDadosBanco2());
                 MessageBox.Show("Depositado com sucesso");
@@ -87,7 +89,7 @@ namespace TrabalhoP2
         {
             Banco b = new Banco();
             b.id = id;
-            b.saldo = Convert.ToDecimal(txtSaldo.Text);
+            b.saldo = soma;
             return b;
 
         }
@@ -110,8 +112,6 @@ namespace TrabalhoP2
                  lblConta.Text =    conta = dr.GetString(4);
                  Saldo = dr.GetDecimal(5);
                  lblSaldo.Text = Convert.ToString(Saldo);
-
-
                 }
                 conn.fechar();
             }
@@ -199,6 +199,7 @@ namespace TrabalhoP2
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+           
             if (txtSaldo.Text=="")
             {
                 MessageBox.Show("Dados em branco!" +
@@ -206,7 +207,11 @@ namespace TrabalhoP2
             }
             else
             {
+                Decimal SaldoAtual = Convert.ToDecimal(txtSaldo.Text);
+                soma = Saldo + SaldoAtual;
+             
                 acionarPoupanca();
+                Consulta();
             }
             
         }

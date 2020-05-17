@@ -34,9 +34,9 @@ namespace TrabalhoP2
         public frmCaixa(Decimal ValorTotal)
         {
             InitializeComponent();
-            DAOCaixa query = new DAOCaixa();
-            dataGridView1.DataSource = query.listaCaixa();
-            saldoCaixa = ValorTotal;
+            //DAOCaixa query = new DAOCaixa();
+            //dgvCaixa.DataSource = query.listaCaixa();
+            //saldoCaixa = ValorTotal;
 
 
         }
@@ -118,7 +118,7 @@ namespace TrabalhoP2
 
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-            txtDataini.Select();
+            mskDataini.Select();
             data = dataTime.Value.ToString("dd/MM/yyyy");
             lblsaldo.Text = ""+saldoCaixa;
             Consulta();
@@ -141,25 +141,17 @@ namespace TrabalhoP2
 
         private void txtDataini_Enter(object sender, EventArgs e)
         {
-            txtDataini.BackColor = System.Drawing.Color.LightBlue;
+            mskDataini.BackColor = System.Drawing.Color.LightBlue;
 
         }
 
         private void txtDataini_Leave(object sender, EventArgs e)
         {
-            txtDataini.BackColor = System.Drawing.Color.White;
+            mskDataini.BackColor = System.Drawing.Color.White;
            
         }
 
-        private void txtDatafim_Enter(object sender, EventArgs e)
-        {
-            txtDatafim.BackColor = System.Drawing.Color.LightBlue;
-        }
-
-        private void txtDatafim_Leave(object sender, EventArgs e)
-        {
-            txtDatafim.BackColor = System.Drawing.Color.White;
-        }
+       
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
@@ -169,7 +161,7 @@ namespace TrabalhoP2
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             DAOCaixa query = new DAOCaixa();
-            dataGridView1.DataSource = query.listaCaixa();
+            dgvCaixa.DataSource = query.listaCaixa();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -181,8 +173,24 @@ namespace TrabalhoP2
         private void txtDataini_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             DAOCaixa c = new DAOCaixa();
-            c.listaAnimalPorNome(txtDataini.Text);
+            c.listaAnimalPorNome(mskDataini.Text);
 
+        }
+
+        private void dgvCaixa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvCaixa_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            DAOCaixa query = new DAOCaixa();
+            dgvCaixa.DataSource = query.listaCaixaPorNome(mskDataini.Text);
         }
     }
 }

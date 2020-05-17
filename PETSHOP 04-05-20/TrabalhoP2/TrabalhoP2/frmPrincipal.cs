@@ -69,7 +69,7 @@ namespace TrabalhoP2
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProduto frm = new frmProduto();
+            frmProduto frm = new frmProduto(false);
             frm.ShowDialog();
         }
 

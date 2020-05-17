@@ -19,12 +19,12 @@ namespace TrabalhoP2
                 "(Data, descricao, Creditodebito, valor, SaldoConta, Subtotal)" +
                 " values(@Data, @descricao, @Creditodebito, @valor, @SaldoConta, @Subtotal)");
             query.Connection = conn.Abrir();
-            query.Parameters.Add("@Data", SqlDbType.VarChar).Value =c.Data;
+            query.Parameters.Add("@Data", SqlDbType.VarChar).Value = c.Data;
             query.Parameters.Add("@Descricao", SqlDbType.VarChar).Value = c.descricao;
             query.Parameters.Add("@Creditodebito", SqlDbType.VarChar).Value =c.Creditodebito;
             query.Parameters.Add("@valor", SqlDbType.Decimal).Value = c.valor;
-            query.Parameters.Add("@SaldoConta", SqlDbType.VarChar).Value = c.SaldoConta;
-            query.Parameters.Add("@Subtotal", SqlDbType.VarChar).Value = c.Subtotal;
+            query.Parameters.Add("@SaldoConta", SqlDbType.Decimal).Value = c.SaldoConta;
+            query.Parameters.Add("@Subtotal", SqlDbType.Decimal).Value = c.Subtotal;
 
             query.ExecuteNonQuery();
             conn.fechar();
@@ -53,6 +53,39 @@ namespace TrabalhoP2
                         ca.Subtotal = rs.GetDecimal(6);
 
                        caixa.Add(ca);
+                    }
+                    conn.fechar();
+                    return caixa;
+                }
+                conn.fechar();
+                return null;
+            }
+        }
+        public List<Caixa> listaCaixaPorNome(String nome)
+        {
+            Conexao conn = new Conexao();
+            SqlCommand query = new SqlCommand(
+                " select  id, Data, Descricao, Creditodebito, valor, SaldoConta, Subtotal from Caixa" +
+                " where Data LIKE @Data");
+            query.Parameters.Add("@Data", SqlDbType.VarChar).Value =
+                                                        "%" + nome + "%";
+            query.Connection = conn.Abrir();
+            using (SqlDataReader rs = query.ExecuteReader())
+            {
+                if (rs.HasRows)
+                {
+                    List<Caixa> caixa = new List<Caixa>();
+                    while (rs.Read())
+                    {
+                        Caixa c = new Caixa();
+                        c.Id = rs.GetInt32(0);
+                       c.Data= rs.GetString(1);
+                       c.descricao = rs.GetString(2);
+                        c.Creditodebito = rs.GetString(3);
+                        c.valor= rs.GetDecimal(4);
+                        c.SaldoConta = rs.GetDecimal(5);
+                        c.Subtotal = rs.GetDecimal(6);
+                        caixa.Add(c);
                     }
                     conn.fechar();
                     return caixa;
@@ -107,5 +140,6 @@ namespace TrabalhoP2
                 return null;
             }
         }
+      
     }
 }

@@ -37,13 +37,11 @@
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoun = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estoqminimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmdMes = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -60,15 +57,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsair
@@ -89,68 +88,76 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Data,
             this.Descricao,
             this.unidade,
+            this.precoun,
             this.entrada,
             this.Saida,
-            this.estoqminimo,
-            this.saldo});
+            this.estoqminimo});
             this.dataGridView1.Location = new System.Drawing.Point(40, 148);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(852, 261);
             this.dataGridView1.TabIndex = 30;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Data
             // 
+            this.Data.DataPropertyName = "Data";
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
             this.Data.Width = 80;
             // 
             // Descricao
             // 
+            this.Descricao.DataPropertyName = "Descricao";
             this.Descricao.HeaderText = "Descrição (produto) ";
             this.Descricao.Name = "Descricao";
             this.Descricao.Width = 150;
             // 
             // unidade
             // 
+            this.unidade.DataPropertyName = "unidade";
             this.unidade.HeaderText = "Un.";
             this.unidade.Name = "unidade";
             // 
+            // precoun
+            // 
+            this.precoun.DataPropertyName = "precoun";
+            this.precoun.HeaderText = "Preço unidade";
+            this.precoun.Name = "precoun";
+            // 
             // entrada
             // 
+            this.entrada.DataPropertyName = "entrada";
             this.entrada.HeaderText = "Entrada";
             this.entrada.Name = "entrada";
             // 
             // Saida
             // 
+            this.Saida.DataPropertyName = "Saida";
             this.Saida.HeaderText = "Saída";
             this.Saida.Name = "Saida";
             // 
             // estoqminimo
             // 
+            this.estoqminimo.DataPropertyName = "estoqminimo";
             this.estoqminimo.HeaderText = "Estoque Mínimo";
             this.estoqminimo.Name = "estoqminimo";
-            // 
-            // saldo
-            // 
-            this.saldo.HeaderText = "Saldo atual";
-            this.saldo.Name = "saldo";
             // 
             // pictureBox4
             // 
@@ -162,63 +169,29 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 32;
             this.pictureBox4.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(45, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 19);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Mês referência:";
-            // 
-            // cmdMes
-            // 
-            this.cmdMes.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdMes.FormattingEnabled = true;
-            this.cmdMes.Items.AddRange(new object[] {
-            "JANEIRO",
-            "FEVEREIRO",
-            "MARÇO",
-            "ABRIL",
-            "MAIO",
-            "JUNHO",
-            "JULHO",
-            "AGOSTO",
-            "SETEMBRO",
-            "OUTUBRO",
-            "NOVEMBRO",
-            "DEZEMBRO"});
-            this.cmdMes.Location = new System.Drawing.Point(184, 98);
-            this.cmdMes.Name = "cmdMes";
-            this.cmdMes.Size = new System.Drawing.Size(157, 27);
-            this.cmdMes.TabIndex = 34;
-            this.cmdMes.Enter += new System.EventHandler(this.cmdMes_Enter);
-            this.cmdMes.Leave += new System.EventHandler(this.cmdMes_Leave);
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(853, 95);
+            this.pictureBox2.Location = new System.Drawing.Point(600, 93);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 39;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(649, 101);
+            this.label3.Location = new System.Drawing.Point(396, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 19);
+            this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 38;
             this.label3.Text = "Data (Fim)";
             // 
@@ -226,35 +199,37 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(438, 102);
+            this.label4.Location = new System.Drawing.Point(109, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 19);
+            this.label4.Size = new System.Drawing.Size(90, 20);
             this.label4.TabIndex = 37;
             this.label4.Text = "Data (Ini.)";
             // 
             // mskDatafim
             // 
-            this.mskDatafim.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskDatafim.Location = new System.Drawing.Point(746, 95);
+            this.mskDatafim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskDatafim.Location = new System.Drawing.Point(493, 93);
             this.mskDatafim.Mask = "00/00/0000";
             this.mskDatafim.Name = "mskDatafim";
-            this.mskDatafim.Size = new System.Drawing.Size(100, 30);
+            this.mskDatafim.Size = new System.Drawing.Size(100, 29);
             this.mskDatafim.TabIndex = 36;
             this.mskDatafim.ValidatingType = typeof(System.DateTime);
+            this.mskDatafim.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskDatafim_MaskInputRejected);
             this.mskDatafim.Enter += new System.EventHandler(this.mskDatafim_Enter);
             this.mskDatafim.Leave += new System.EventHandler(this.mskDatafim_Leave);
             // 
             // mskDataini
             // 
-            this.mskDataini.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskDataini.Location = new System.Drawing.Point(534, 95);
+            this.mskDataini.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskDataini.Location = new System.Drawing.Point(205, 94);
             this.mskDataini.Mask = "00/00/0000";
             this.mskDataini.Name = "mskDataini";
-            this.mskDataini.Size = new System.Drawing.Size(100, 30);
+            this.mskDataini.Size = new System.Drawing.Size(100, 29);
             this.mskDataini.TabIndex = 35;
             this.mskDataini.ValidatingType = typeof(System.DateTime);
+            this.mskDataini.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskDataini_MaskInputRejected);
             this.mskDataini.Enter += new System.EventHandler(this.maskedTextBox1_Enter);
             this.mskDataini.Leave += new System.EventHandler(this.mskDataini_Leave);
             // 
@@ -271,11 +246,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Green;
             this.label5.Location = new System.Drawing.Point(87, 448);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 19);
+            this.label5.Size = new System.Drawing.Size(160, 20);
             this.label5.TabIndex = 42;
             this.label5.Text = "Adicionar produtos";
             // 
@@ -290,17 +265,6 @@
             this.pictureBox3.TabIndex = 43;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(351, 96);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 44;
-            this.pictureBox5.TabStop = false;
             // 
             // panel2
             // 
@@ -348,11 +312,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Green;
             this.label12.Location = new System.Drawing.Point(290, 16);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(255, 22);
+            this.label12.Size = new System.Drawing.Size(263, 24);
             this.label12.TabIndex = 34;
             this.label12.Text = "CONTROLE DE ESTOQUE";
             // 
@@ -372,17 +336,38 @@
             this.panel5.Size = new System.Drawing.Size(46, 16);
             this.panel5.TabIndex = 47;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(295, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(10, 20);
+            this.dateTimePicker1.TabIndex = 49;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(311, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(915, 520);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox4);
@@ -393,8 +378,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mskDatafim);
             this.Controls.Add(this.mskDataini);
-            this.Controls.Add(this.cmdMes);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEstoque";
@@ -405,12 +388,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,8 +403,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnsair;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmdMes;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -430,20 +411,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoun;
         private System.Windows.Forms.DataGridViewTextBoxColumn entrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saida;
         private System.Windows.Forms.DataGridViewTextBoxColumn estoqminimo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saldo;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

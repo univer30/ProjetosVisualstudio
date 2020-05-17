@@ -8,20 +8,14 @@ namespace TrabalhoP2
 {
     public class Estoque
     {
-
-
         public int id { set; get; }
         public String Data { set; get; }
-        public String descricao { set; get; }
-        public String entrada { set; get; }
-        public String saida { set; get; }
-        public int unidade { set; get; }
-
-        public int estoqueminimo { set; get; }
-        public Decimal saldoAtual { set; get; }
-        public int id_produto{ set; get; }
-
-
-
+        public String Descricao { set; get; }
+        public int  Unidade { set; get; }
+        public String Entrada { set; get; }
+        public String Saida { set; get; }
+        public int Estoqminimo { set; get; }
+   
+        public Decimal precoun { set; get; }
     }
 }

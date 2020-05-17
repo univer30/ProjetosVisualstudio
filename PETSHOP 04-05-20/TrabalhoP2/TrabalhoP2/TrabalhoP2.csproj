@@ -106,10 +106,12 @@
     <Compile Include="DAOBanco.cs" />
     <Compile Include="DAOCaixa.cs" />
     <Compile Include="DAOConsumoCliente.cs" />
+    <Compile Include="DAOEstoque.cs" />
     <Compile Include="DAOFuncionario.cs" />
     <Compile Include="DAOLogin.cs" />
     <Compile Include="DAOPagamento.cs" />
     <Compile Include="DAOProduto.cs" />
+    <Compile Include="Estoque.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

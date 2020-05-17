@@ -33,6 +33,13 @@ namespace TrabalhoP2
         Decimal Subtotal = 0;
         Decimal saldoconta = 0;
         Decimal total;
+        int qtdeEstoque;
+        int totalqtdeest;
+        String ent = "Vazio";
+        int Est = 10;
+       
+
+        int uni = 1;
        
 
         public frmconsumocliente()
@@ -47,7 +54,8 @@ namespace TrabalhoP2
             frmCaixa c = new frmCaixa(total);
 
         }
-        
+
+       
       
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -137,6 +145,60 @@ namespace TrabalhoP2
             }
 
         }
+
+        void ConsultaEstoque()
+        {
+            cmd.CommandText = @"select * from Estoque  ";
+            cmd.Parameters.Clear();
+            cmd.Connection = conn.Abrir();
+            try
+            {
+                cmd.Connection = conn.Abrir();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+
+                    dr.Read();
+
+                  qtdeEstoque = qtdeEstoque=  dr.GetInt32(3);
+
+
+                }
+                conn.fechar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro no select");
+            }
+
+        }
+        public Estoque getdadosEstoque()
+        {
+            Estoque e = new Estoque();
+            e.Descricao = rtbdescricao.Text;
+            e.Unidade = totalqtdeest;
+
+            return e;
+        }
+        public Estoque getdadosEstoque2()
+        {
+            Estoque e = new Estoque();
+            e.Data = data;
+            e.Descricao = rtbdescricao.Text;
+            e.Unidade = uni;
+            e.Entrada = ent;
+            e.Saida=data;
+            e.Estoqminimo = Est;
+            e.precoun = Convert.ToDecimal(txtprecounitario.Text);
+
+            e.Unidade = totalqtdeest;
+
+            return e;
+        }
+
+
+
+
 
         private void liberar()
         {
@@ -295,12 +357,12 @@ namespace TrabalhoP2
         private void frmconsumocliente_Paint(object sender, PaintEventArgs e)
         {
 
-            
-
         }
 
         private void btnAdicionarL_Click(object sender, EventArgs e)
         {
+
+            ConsultaEstoque();
              data =dtpHora.Value.ToString("dd/MM/yyyy");
              hora = dtpHora.Value.ToString("HH:mm");
             ListViewItem lvwItem = listView2.Items.Add(txtcodproduto.Text);
@@ -316,9 +378,14 @@ namespace TrabalhoP2
             //dados para o controle de caixa
             DAOCaixa frm = new DAOCaixa();
             frm.inserir(getdadoscaixa());
-       
-        }
 
+            //Alterar unidade de estoque
+            DAOEstoque est = new DAOEstoque();
+            totalqtdeest = qtdeEstoque - uni;
+            est.alterar(getdadosEstoque());
+            //inserir no estoque
+            est.inserir(getdadosEstoque2());
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

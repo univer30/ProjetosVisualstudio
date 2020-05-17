@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCaixa));
-            this.txtDataini = new System.Windows.Forms.MaskedTextBox();
-            this.txtDatafim = new System.Windows.Forms.MaskedTextBox();
+            this.mskDataini = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblsaldo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,10 +50,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dataTime = new System.Windows.Forms.DateTimePicker();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.dgvCaixa = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,36 +61,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaixa)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtDataini
+            // mskDataini
             // 
-            this.txtDataini.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataini.Location = new System.Drawing.Point(123, 94);
-            this.txtDataini.Mask = "00/00/0000";
-            this.txtDataini.Name = "txtDataini";
-            this.txtDataini.Size = new System.Drawing.Size(100, 29);
-            this.txtDataini.TabIndex = 2;
-            this.txtDataini.ValidatingType = typeof(System.DateTime);
-            this.txtDataini.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDataini_MaskInputRejected);
-            this.txtDataini.Enter += new System.EventHandler(this.txtDataini_Enter);
-            this.txtDataini.Leave += new System.EventHandler(this.txtDataini_Leave);
-            // 
-            // txtDatafim
-            // 
-            this.txtDatafim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDatafim.Location = new System.Drawing.Point(335, 94);
-            this.txtDatafim.Mask = "00/00/0000";
-            this.txtDatafim.Name = "txtDatafim";
-            this.txtDatafim.Size = new System.Drawing.Size(100, 29);
-            this.txtDatafim.TabIndex = 3;
-            this.txtDatafim.ValidatingType = typeof(System.DateTime);
-            this.txtDatafim.Enter += new System.EventHandler(this.txtDatafim_Enter);
-            this.txtDatafim.Leave += new System.EventHandler(this.txtDatafim_Leave);
+            this.mskDataini.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskDataini.Location = new System.Drawing.Point(166, 86);
+            this.mskDataini.Mask = "00/00/0000";
+            this.mskDataini.Name = "mskDataini";
+            this.mskDataini.Size = new System.Drawing.Size(100, 29);
+            this.mskDataini.TabIndex = 2;
+            this.mskDataini.ValidatingType = typeof(System.DateTime);
+            this.mskDataini.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDataini_MaskInputRejected);
+            this.mskDataini.Enter += new System.EventHandler(this.txtDataini_Enter);
+            this.mskDataini.Leave += new System.EventHandler(this.txtDataini_Leave);
             // 
             // label2
             // 
@@ -100,23 +86,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(27, 101);
+            this.label2.Location = new System.Drawing.Point(70, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Data (Ini.)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(238, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Data (Fim)";
             // 
             // label4
             // 
@@ -316,14 +290,6 @@
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 139);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(852, 251);
-            this.dataGridView1.TabIndex = 37;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -352,12 +318,22 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(443, 94);
+            this.pictureBox2.Location = new System.Drawing.Point(279, 85);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // dgvCaixa
+            // 
+            this.dgvCaixa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaixa.Location = new System.Drawing.Point(26, 151);
+            this.dgvCaixa.Name = "dgvCaixa";
+            this.dgvCaixa.Size = new System.Drawing.Size(857, 227);
+            this.dgvCaixa.TabIndex = 36;
+            this.dgvCaixa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaixa_CellContentClick_1);
             // 
             // frmCaixa
             // 
@@ -365,7 +341,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(915, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCaixa);
             this.Controls.Add(this.dataTime);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -377,10 +353,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDatafim);
-            this.Controls.Add(this.txtDataini);
+            this.Controls.Add(this.mskDataini);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -396,20 +370,18 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaixa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MaskedTextBox txtDataini;
-        private System.Windows.Forms.MaskedTextBox txtDatafim;
+        private System.Windows.Forms.MaskedTextBox mskDataini;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblsaldo;
         private System.Windows.Forms.Label label6;
@@ -432,6 +404,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.DateTimePicker dataTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCaixa;
     }
 }
